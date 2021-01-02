@@ -1,4 +1,4 @@
-const graph = [
+const graph = [ //матрица смежности
     [null, 1, 0, 1, 0, 0, 0, 0, 0],
     [0, null, 1, 1, 0, 0, 0, 0, 0],
     [0, 0, null, 0, 0, 0, 0, 0, 0],
@@ -9,7 +9,7 @@ const graph = [
     [0, 0, 0, 0, 0, 0, 0, null, 1],
     [0, 0, 1, 0, 1, 0, 0, 0, null],
 ]
-const invertedGraph = []
+let transposing = graph.map((_, colIndex) => graph.map(row => row[colIndex])) // перевернутая матрица смежности
 
 function R(i) { // Возвращает список всех вершин достижимых из заданой
     let queue = U(i)
@@ -63,7 +63,7 @@ function Q(i) { //Антипроход (контрдостижимые) Взвр
     return set
 }
 
-function removeEdge(i) { // Удаляем указанную вершину из матрицы
+/*function removeEdge(i) { // Удаляем указанную вершину из матрицы
     graph[i] = new Array(graph[i].length).fill(null)
     for (let j = 0; j < graph.length; j++) {
         graph[j][i] = null
@@ -74,6 +74,6 @@ for (let i = graph.length - 1; i > -1; i--) {
     const a = [...new Set([...R(i)].filter(x => Q(i).has(x)))] //Пересечение R и Q, одну вершину выкидываем, остальные удаляем
     a.shift();
     a.forEach(removeEdge);
-}
+}*/
 
-console.log(Q(1));
+//console.log(Q(0)); // Проверка из каких вершин можно придти в эту точку
