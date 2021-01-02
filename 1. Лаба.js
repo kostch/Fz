@@ -9,7 +9,7 @@ const graph = [ //матрица смежности
     [0, 0, 0, 0, 0, 0, 0, null, 1],
     [0, 0, 1, 0, 1, 0, 0, 0, null],
 ]
-let transposing = graph.map((_, colIndex) => graph.map(row => row[colIndex])) // перевернутая матрица смежности
+const transposing = graph.map((_, colIndex) => graph.map(row => row[colIndex])) // перевернутая матрица смежности
 
 function R(i) { // Возвращает список всех вершин достижимых из заданой
     let queue = U(i)
