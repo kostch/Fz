@@ -86,4 +86,14 @@ function Remove(i) {
     }
 }
 
+function Ul(i) { //Множественное задание структуры
+   while (i !== elt) {
+       console.log('G(',i,')=',U(i))
+       i++
+   }
+}
+
+let elt = R(0).length
+
+//console.log(Ul(0)) //Множественное задание структуры
 console.log(Remove(0))
