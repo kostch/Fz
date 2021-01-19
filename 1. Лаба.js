@@ -66,17 +66,18 @@ function Remove(i) {
     let intersection = []
     let difference = [10]
     let res = []
-    while (res.length !== 9) { // цикл до длинны масива 0
+    let azaza = R(0).length
+    while (res.length !== azaza) { // цикл до длинны масива 0
         let Ri = R(Z)
         let Ui = U(Z)
-        Ri.sort(function(a, b) {
-            return a - b;
-        });
         intersection = Ri.filter(x => Ui.includes(x)); // То что пересекается
         let acac = intersection.filter(x => !res.includes(x));
         console.log(acac, 'Обединение вершин номер ', (i++))
         res.push(...acac)
         difference = R(0).filter(x => !res.includes(x)); //то чего нет в intersection
+        difference.sort(function(a, b) {
+            return a - b;
+        });
         if (difference[0] === undefined) {
             let az = intersection[0] + 1;
             difference.unshift(az);
